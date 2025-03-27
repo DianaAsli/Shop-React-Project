@@ -16,22 +16,22 @@ export default function Navbar() {
                 <img src={logo} className='w-36 h-20 object-cover' alt="Logo Nomeya" />
             </Link>
 
-            <ul className='hidden sm:flex gap-5 text-sm text-stone-700'>
+            <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
                 <NavLink to='/' className='flex flex-col items-center gap-1'>
                     <p>HOME</p>
-                    <hr className='w-2/4 border-none h-[1.5px] bg-stone-700 hidden' />
+                    <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
                 </NavLink>
                 <NavLink to='/collection' className='flex flex-col items-center gap-1'>
                     <p>COLLECTIONS</p>
-                    <hr className='w-2/4 border-none h-[1.5px] bg-stone-700 hidden' />
+                    <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
                 </NavLink>
                 <NavLink to='/about' className='flex flex-col items-center gap-1'>
                     <p>ABOUT</p>
-                    <hr className='w-2/4 border-none h-[1.5px] bg-stone-700 hidden' />
+                    <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
                 </NavLink>
                 <NavLink to='/contact' className='flex flex-col items-center gap-1'>
                     <p>CONTACT</p>
-                    <hr className='w-2/4 border-none h-[1.5px] bg-stone-700 hidden' />
+                    <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
                 </NavLink>
             </ul>
 
@@ -41,8 +41,7 @@ export default function Navbar() {
                 <div className='group relative'>
                     <img src={user} alt="" className="w-5 cursor-pointer icon-thin"/>
                     <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
-                        <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-stone
--500 rounded'>
+                        <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded'>
                             <p className='cursor-pointer hover:text-black'>My Profile</p>
                             <p className='cursor-pointer hover:text-black'>Orders</p>
                             <p className='cursor-pointer hover:text-black'>Logout</p>
