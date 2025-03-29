@@ -1,0 +1,77 @@
+{
+    "products":{
+        "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a": {
+            "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a",
+            "productName": "Gold Diamond Ring 1",
+            "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
+            "price": 999,
+            "category": "rings",
+            "subcategory":["Pearls"],
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGTVVZLqTh30zp9QpKp4IYW6iDH14730jPNA&s",
+            "createdAt": "2025-03-10T12:00:00Z",
+            "updatedAt": "2024-03-11T15:30:00Z",
+            "bestseller": true
+        },
+        "fb352199-bcbc-4e1d-a1dc-ed346a6fb49b": {
+            "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49b",
+            "productName": "Gold Ring 2",
+            "description": "Elegant 18K gold ring.",
+            "price": 499,
+            "category": "earings",
+            "subcategory":["Gold"],
+            "imageUrl": "https://etrnl.com.au/cdn/shop/files/3B_2048x.jpg?v=1695685767",
+            "createdAt": "2025-02-10T12:00:00Z",
+            "updatedAt": "2024-03-11T15:30:00Z",
+            "bestseller": false
+        },
+        "fb352199-bcbc-4e1d-a1dc-ed346a6fb49c": {
+            "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49c",
+           "productName": "Siver Earings with Stones 3",
+            "description": "Elegant Silver Earings with Stones",
+            "price": 999,
+            "category": "earings",
+            "subcategory":["Silver"],
+            "imageUrl": "https://1131859681.rsc.cdn77.org/temp/1666881726_10886c6abc1b47b44f907428cb335943.jpg",
+            "createdAt": "2025-01-10T12:00:00Z",
+            "updatedAt": "2024-03-11T15:30:00Z",
+            "bestseller": true
+        },
+        "fb352199-bcbc-4e1d-a1dc-ed346a6fb49d": {
+            "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49d",
+            "productName": "Gold Diamond Ring 4",
+            "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
+            "price": 999,
+            "category": "rings",
+            "subcategory":["Silver"],
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGTVVZLqTh30zp9QpKp4IYW6iDH14730jPNA&s",
+            "createdAt": "2024-04-10T12:00:00Z",
+            "updatedAt": "2024-03-11T15:30:00Z",
+            "bestseller": true
+        },
+        "fb352199-bcbc-4e1d-a1dc-ed346a6fb49e": {
+            "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49e",
+            "productName": "Gold Diamond Ring 5",
+            "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
+            "price": 999,
+            "category": "rings",
+            "subcategory":["Gold", "Diamonds"],
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGTVVZLqTh30zp9QpKp4IYW6iDH14730jPNA&s",
+            "createdAt": "2024-05-10T12:00:00Z",
+            "updatedAt": "2024-03-11T15:30:00Z",
+            "bestseller": true
+        },
+        "fb352199-bcbc-4e1d-a1dc-ed346a6fb49f": {
+            "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49f",
+            "productName": "Gold Diamond Ring",
+            "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
+            "price": 999,
+            "category": "rings",
+            "subcategory":["Gold", "Diamonds"],
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGTVVZLqTh30zp9QpKp4IYW6iDH14730jPNA&s",
+            "createdAt": "2020-03-10T12:00:00Z",
+            "updatedAt": "2024-03-11T15:30:00Z",
+            "bestseller": false
+        }
+}
+}
+     
