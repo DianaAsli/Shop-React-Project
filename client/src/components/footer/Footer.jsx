@@ -15,7 +15,7 @@ export default function Footer() {
                     <ul className='flex flex-col gap-1 text-gray-600'>
                         <NavLink to='/'>Home</NavLink>
                         <NavLink to='/about'>About us</NavLink>
-                        <NavLink to='/contact'>Delivery</NavLink>
+                        <NavLink to='/contact'>Contact</NavLink>
                     </ul>
                 </div>
 

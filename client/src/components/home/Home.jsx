@@ -1,7 +1,16 @@
-import React from 'react'
+// import BestSellers from './BestSellers'
+import Hero from './Hero'
+// import LatestProducts from './LatestProducts'
+// import Newsletter from './Newsletter'
 
 export default function Home() {
   return (
-    <h1>Home</h1>
+    <>
+      <Hero />
+      {/* <LatestProducts />
+      <BestSellers />
+      <Newsletter/> */}
+    </>
+
   )
 }

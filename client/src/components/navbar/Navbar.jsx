@@ -3,7 +3,7 @@ import { useState } from 'react';
 import logo from '../../assets/logo.png'
 import searchIcon from '../../assets/searchIcon.jpg'
 import user from '../../assets/user.png'
-import cart from '../../assets/cart.png'
+import cart from '../../assets/cart.jpeg'
 import burgerMenu from '../../assets/burgerMenu.png'
 import back from '../../assets/back.png'
 
@@ -36,10 +36,10 @@ export default function Navbar() {
             </ul>
 
             <div className='flex items-center gap-6'>
-                <img src={searchIcon} alt="" className="w-5 cursor-pointer"/>
+                <img src={searchIcon} alt="" className="w-10 cursor-pointer"/>
 
                 <div className='group relative'>
-                    <img src={user} alt="" className="w-5 cursor-pointer icon-thin"/>
+                    <img src={user} alt="" className="w-8 cursor-pointer icon-thin"/>
                     <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
                         <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded'>
                             <p className='cursor-pointer hover:text-black'>My Profile</p>
@@ -48,7 +48,7 @@ export default function Navbar() {
                         </div>
                     </div>
                 </div>
-                <Link to='/cart' className='relative'>
+                <Link to='/cart' className='w-5 h-5relative'>
                     <img src={cart} alt="" className='relative'/>
                     <p className='absolute right-[-5px] bottom-[-5px] w-3 text-center leading-3 bg-white text-black border aspect-square rounded-full text-[8px]'>10</p>
                 </Link>
