@@ -6,6 +6,7 @@ import shopServices from "../api/shopServices"
 
 const useProducts = () => {
     const [allProducts, setAllProducts] = useState([]);
+    
     useEffect(() => {
         shopServices.getAll().then(result => setAllProducts(result))
     }, [])
