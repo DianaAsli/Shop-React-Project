@@ -1,5 +1,5 @@
 import {Link} from 'react-router'
-import Title from '../Title'
+import Title from '../UI/Title'
 export default function CategoryCard({ name, path, img }) {
     return (
       <Link className='text-gray-700 cursor-pointer' to={path}>

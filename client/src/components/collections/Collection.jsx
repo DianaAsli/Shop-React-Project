@@ -4,7 +4,7 @@ import bracelet from '../../assets/bracelet.jpg'
 import necklaces from '../../assets/necklaces.jpg'
 import rings from '../../assets/rings.jpg'
 import CategoryCard from './CollectionCard'
-import Title from '../Title'
+import Title from '../UI/Title'
 
 const collections = [
     {

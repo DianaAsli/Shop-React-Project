@@ -5,7 +5,7 @@ export default function ProductItem({ id, name, price, image }) {
     
     return (
         <Link to={`/product/${id}`} className="text-gray-700 cursor-pointer">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden w-full h-60">
                 <img className='hover:scale-110 transition ease-in-out' src={image} alt="" />
             </div>
             <p className="pt-3 pb-1 text-sm">{name}</p>
