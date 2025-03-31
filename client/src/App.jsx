@@ -3,6 +3,7 @@ import Home from './components/home/Home';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Collection from './components/collections/Collection';
+import Category from './components/collections/Category';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/collection' element={<Collection/>}/>
+        <Route path='/collection/:category' element={<Category/>}/>
       </Routes>
       <Footer/>
     </div>

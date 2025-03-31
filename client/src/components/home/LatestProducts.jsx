@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import useProducts from '../../hooks/useProducts'
 import Title from '../Title';
-import ProductItem from '../Product/ProductItem';
+import ProductItem from '../product/ProductItem';
+import ProductList from '../product/ProductList';
 
 export default function LatestProducts() {
     const products = useProducts();
@@ -22,11 +23,12 @@ export default function LatestProducts() {
             </div>
 
             {/* Rendering products */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
+            {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
                 {latestProducts.map((product) => {
                     return <ProductItem key={product._id} id={product._id} image={product.imageUrl} name={product.productName} price={product.price} />
                 })}
-            </div>
+            </div> */}
+            <ProductList products={latestProducts}/>
 
         </div>
     )
