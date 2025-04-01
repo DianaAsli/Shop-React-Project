@@ -1,10 +1,12 @@
-import { requester } from "../utils/requester";
+import {
+    requester
+} from "../utils/requester";
 
 const baseUrl = 'http://localhost:3030/jsonstore/shop/products';
 
 export default {
-    getAll(){
-        return requester('GET', baseUrl);
-
+    async getAll() {
+        const result = await requester('GET', baseUrl);
+        return Object.values(result);
     }
 }

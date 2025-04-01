@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useActionState } from 'react'
 import Title from '../UI/Title'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import './common.css'
+import { useLogin } from '../../api/authServices'
 
 export default function Login() {
+    const { login } = useLogin();
+    const navigate = useNavigate();
+
+    const handleLogin = async (previousState, formData) => {
+        const values = Object.fromEntries(formData);
+        const result = await login(values.email, values.password);
+        navigate('/');
+        console.log('Login result', result);
+
+
+    }
+
+    const [state, formAction] = useActionState(handleLogin, { email: '', password: '' })
+
     return (
         <div className='auth-container'>
             <Title className='auth-title' text2={'LOGIN'}></Title>
-            <form action="" className='auth-form'>
+            <form action={formAction} className='auth-form'>
                 <input type="email" placeholder='Your email' name='email' required className='auth-input' />
                 <input type="password" placeholder='Your password' name='password' required className='auth-input' />
                 <button type='submit' className='auth-button'>Login</button>

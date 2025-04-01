@@ -13,5 +13,9 @@ export const requester = async (method, url, data) => {
     const response = await fetch(url, options);
     const result = await response.json();
 
-    return Object.values(result);
+    return result;
+    // console.log('Server responce', result);
+    
+    // return Object.values(result);
+    
 }
