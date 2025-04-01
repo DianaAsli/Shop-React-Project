@@ -6,19 +6,26 @@ import Collection from './components/collections/Collection';
 import Category from './components/collections/Category';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import { useState } from 'react';
 
 function App() {
+  const [authData, setAuthData] = useState({});
+
+ const loginHandler = (data) =>{
+    setAuthData(data);
+  }
+
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
-    <Navbar/>
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/collection' element={<Collection/>}/>
-        <Route path='/collection/:category' element={<Category/>}/>
-        <Route path='/users/login' element={<Login/>}/>
-        <Route path='/users/register' element={<Register/>}/>
+        <Route path='/collection' element={<Collection />} />
+        <Route path='/collection/:category' element={<Category />} />
+        <Route path='/users/login' element={<Login onLogin={loginHandler} />} />
+        <Route path='/users/register' element={<Register />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

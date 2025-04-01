@@ -4,17 +4,16 @@ import { Link, useNavigate } from 'react-router'
 import './common.css'
 import { useLogin } from '../../api/authServices'
 
-export default function Login() {
+export default function Login({ onLogin }) {
     const { login } = useLogin();
     const navigate = useNavigate();
 
     const handleLogin = async (previousState, formData) => {
         const values = Object.fromEntries(formData);
-        const result = await login(values.email, values.password);
+        const data = await login(values.email, values.password);
+       onLogin(data);
         navigate('/');
-        console.log('Login result', result);
-
-
+        //console.log('Login result', result);
     }
 
     const [state, formAction] = useActionState(handleLogin, { email: '', password: '' })
