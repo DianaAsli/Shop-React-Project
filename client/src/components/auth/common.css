@@ -1,4 +1,4 @@
-.login-container{
+.auth-container{
     text-align: center;
     padding: 40px 20px;
     background-color: #F3F4F6;
@@ -8,7 +8,7 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);   
 }
 
-.login-form{
+.auth-form{
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -16,12 +16,12 @@
     margin: 0 auto;
 }
 
-.login-input{
+.auth-input{
     width: 100%;
     padding: 12px;
     background-color: white;
 }
-.login-button{
+.auth-button{
     padding: 6px;
     background-color: #000;
     color: white;
@@ -34,12 +34,12 @@
     cursor: pointer;
     transition: background 0.3s;
 }
-.login-text{
+.auth-text{
     margin: 10px;
     display: flex;
     gap: 10px;
     justify-content: center;
 }
-.login-link{
-    text-decoration:underline
+.auth-link{
+    text-decoration:underline;
 }
