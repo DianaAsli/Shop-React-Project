@@ -37,7 +37,10 @@ export default function Navbar() {
 
             <div className='flex items-center gap-6'>
                 <img src={searchIcon} alt="" className="w-10 cursor-pointer" />
-
+                
+                <Link className='text-gray-700' to='/users/login'>Login</Link>
+                <Link className='text-gray-700' to='/users/register'>Register</Link>
+                
                 <div className='group relative'>
                     <img src={user} alt="" className="w-8 cursor-pointer icon-thin" />
                     <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
