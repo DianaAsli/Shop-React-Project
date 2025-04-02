@@ -17,3 +17,18 @@ export const useLogin = () => {
         login
     }
 }
+
+export const useRegister = () => {
+    const register = async (email, username, password) => {
+        const result = await requester('POST', `${baseUrl}/register`, {
+            email,
+            password,
+            username,
+            role: 'user'
+        })
+        return result;
+    }
+    return {
+        register
+    };
+}
