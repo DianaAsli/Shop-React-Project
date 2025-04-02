@@ -8,6 +8,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import { useState } from 'react';
 import { UserContext } from './context/UserContext';
+import Logout from './components/auth/Logout';
 
 function App() {
   const [authData, setAuthData] = useState({});
@@ -16,16 +17,21 @@ function App() {
     setAuthData(data);
   }
 
+  const logoutHandler = () =>{
+    setAuthData({});
+  }
+
   return (
-    <UserContext.Provider value={{...authData,loginHandler}}>
+    <UserContext.Provider value={{...authData,loginHandler, logoutHandler}}>
       <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/collection' element={<Collection />} />
           <Route path='/collection/:category' element={<Category />} />
-          <Route path='/users/login' element={<Login onLogin={loginHandler} />} />
+          <Route path='/users/login' element={<Login />} />
           <Route path='/users/register' element={<Register />} />
+          <Route path='/users/logout' element={<Logout/>}/>
         </Routes>
         <Footer />
       </div>
