@@ -1,6 +1,7 @@
 import {
     useContext,
-    useEffect
+    useEffect,
+    useState
 } from "react";
 import {
     requester
@@ -8,6 +9,9 @@ import {
 import {
     UserContext
 } from "../context/UserContext";
+import {
+    useNavigate
+} from "react-router";
 
 const baseUrl = 'http://localhost:3030/users';
 
@@ -33,6 +37,7 @@ export const useRegister = () => {
             username,
             role: 'user'
         })
+
         return result;
     }
     return {
@@ -42,8 +47,9 @@ export const useRegister = () => {
 
 export const useLogout = () => {
     const {
-        accessToken
-    } = useContext(UserContext)
+        accessToken,
+        logoutHandler
+    } = useContext(UserContext);
 
     useEffect(() => {
         if (!accessToken) {
@@ -51,33 +57,26 @@ export const useLogout = () => {
         }
 
         const logout = async () => {
+            console.log('Executing logout');
+
             try {
-                await fetch(`${baseUrl}/logout`, {
+                const response = await fetch(`${baseUrl}/logout`, {
                     method: 'GET',
                     headers: {
-                        'X-Authorization': accessToken
+                        "X-Authorization": accessToken,
                     }
-                })
+                });
+
+                if (response.status === 204) {
+                    logoutHandler();
+                }
+
             } catch (error) {
-                console.error('Logout error', error);
+                console.log('Logout error', error);
+
             }
         }
         logout();
-    }, [accessToken]);
+    },[accessToken,logoutHandler])
 
-
-
-    // const logout = async () => {
-    //     const response = await fetch(`${baseUrl}/logout`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'X-Authorization': accessToken
-    //         }
-    //     })
-    //     return response;
-    // }
-
-    // return {
-    //     logout
-    // }
 }

@@ -16,7 +16,6 @@ export default function Register() {
             return;
         }
         const data = await register(email, username, password);
-        console.log('register data', data);
         
         loginHandler(data);
         navigate('/');
