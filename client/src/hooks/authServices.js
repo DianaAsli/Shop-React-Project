@@ -57,12 +57,7 @@ export const useLogout = () => {
             console.log('Executing logout');
 
             try {
-                const response = await fetch(`${baseUrl}/logout`, {
-                    method: 'GET',
-                    headers: {
-                        "X-Authorization": accessToken,
-                    }
-                });
+                const response = await requester('GET', `${baseUrl}/logout`, null, accessToken);
 
                 if (response.status === 204) {
                     logoutHandler();
@@ -74,7 +69,7 @@ export const useLogout = () => {
             }
         }
         logout();
-    },[accessToken,logoutHandler])
+    }, [accessToken, logoutHandler])
 
 }
 

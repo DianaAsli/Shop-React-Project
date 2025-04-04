@@ -1,4 +1,4 @@
-export const requester = async (method, url, data) => {
+export const requester = async (method, url, data, authToken) => {
     const options = {
         method,
         headers: {
@@ -6,15 +6,20 @@ export const requester = async (method, url, data) => {
         }
     }
 
+    if (authToken) {
+        options.headers['X-Authorization'] = authToken;
+    }
+
     if (data && method !== 'GET') {
         options.body = JSON.stringify(data);
     }
 
     const response = await fetch(url, options);
+
+    if (response.status === 204) {
+        return response;
+    }
+
     const result = await response.json();
-
     return result;
-
-    // return Object.values(result);
-    
 }
