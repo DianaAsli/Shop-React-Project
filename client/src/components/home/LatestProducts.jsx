@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import useProducts from '../../hooks/useProducts'
+import {useProducts} from "../../api/shopServices";
 import Title from '../UI/Title';
-import ProductItem from '../product/ProductItem';
 import ProductList from '../product/ProductList';
 
 export default function LatestProducts() {

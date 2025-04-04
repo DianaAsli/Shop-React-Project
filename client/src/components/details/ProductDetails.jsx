@@ -1,25 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router"
-import shopServices from "../../api/shopServices";
-import Rating from "./Rating";
+import { useProduct } from "../../api/shopServices";
+import Rating from "../rating/Rating";
 import Comments from "../coments/Comments";
 
 export default function ProductDetails() {
   const { productId } = useParams();
-  const [product, setProduct] = useState(null);
+  const product = useProduct(productId);
   const [mainImage, setMainImage] = useState(null);
 
   useEffect(() => {
-    if (!productId) return;
-
-    shopServices.getById(productId)
-      .then(result => {
-        setProduct(result);
-        setMainImage(result.imageUrl[0]);
-      })
-      .catch(error => {
-        console.log('Error fetching the prorduct', error);
-      })
+    if(product && product.imageUrl){
+      setMainImage(product.imageUrl[0]);
+    }
   }, [productId]);
 
   const handleClick = (img) => {
@@ -59,7 +52,6 @@ export default function ProductDetails() {
         </div>
       </div>
 
-      
       <Comments/>
 
     </div>

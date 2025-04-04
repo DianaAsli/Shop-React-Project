@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ProductItem from '../product/ProductItem'
 import Title from '../UI/Title'
-import useProducts from '../../hooks/useProducts'
+import {useProducts} from "../../api/shopServices";
 import ProductList from '../product/ProductList';
 
 export default function BestSellers() {

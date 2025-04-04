@@ -1,5 +1,5 @@
 import { useParams } from "react-router"
-import useProducts from "../../hooks/useProducts";
+import {useProducts} from "../../api/shopServices";
 import { useEffect, useState } from "react";
 import Title from "../UI/Title";
 import ProductList from "../product/ProductList";
