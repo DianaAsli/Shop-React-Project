@@ -6,8 +6,6 @@ export default function Rating({ rating, setRating, isEditable }) {
       setRating(value);
     } 
   }
-  console.log('rating', rating);
-  
 
   return (
     <div className="flex items-center gap-1 mt-2">

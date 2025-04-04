@@ -23,7 +23,7 @@ export const useCreateComment = () => {
             rating,
             comment,
         }
-        const result = await requester('POST', `${baseUrl}/comments`, data, accessToken);
+        const result = await requester('POST', `${baseUrl}`, data, accessToken);
         return result;
     }
 
