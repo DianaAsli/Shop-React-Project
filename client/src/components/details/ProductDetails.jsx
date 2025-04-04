@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router"
 import { useProduct } from "../../hooks/shopServices";
-import Rating from "../rating/Rating";
-import Comments from "../coments/Comments";
+import Comments from "../comments/Comments";
+import AverageRating from "../rating/AverageRating";
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -42,8 +42,8 @@ export default function ProductDetails() {
         </div>
 
         <div className="flex-1">
-          <h1 className="font-medium text-2xl mt-2">{product.productName}</h1>
-          <Rating />
+          <h1 className="font-medium text-3xl mt-2">{product.productName}</h1>
+          <AverageRating />
           <p className="mt-5 text-xl font-medium">BGN {product.price}</p>
           <p className="mt-5 text-gray-600">{product.description}</p>
           <div className="mt-10">

@@ -8,7 +8,6 @@ export default function Rating() {
             <p className="w-3 5  text-yellow-500">★</p>
             <p className="w-3 5">☆</p>
             <p className="w-3 5">☆</p>
-            <p className="pl-2">10 comments</p>
           </div>
   )
 }
