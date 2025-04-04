@@ -47,7 +47,7 @@ export const useComments = (productId) => {
             setFiltered(filteredComments);
         }
         getAll();
-    }, [productId, accessToken]);
+    }, [productId]);
 
     return filtered;
 }

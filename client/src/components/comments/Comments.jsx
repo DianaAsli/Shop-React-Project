@@ -23,8 +23,7 @@ export default function Comments() {
         {showForm && <CommentForm setShowForm={setShowForm} />}
 
         <div className='mt-10'>
-          {/* <CommentsList /> */}
-          <CommentCard/>
+          <CommentsList />
         </div>
 
       </div>
