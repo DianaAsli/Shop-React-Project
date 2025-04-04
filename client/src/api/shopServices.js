@@ -26,7 +26,7 @@ export const useProduct = (productId) => {
 
         const getOne = async () => {
             try {
-                const result = await requester('GET', `${baseUrl}/${id}`);
+                const result = await requester('GET', `${baseUrl}/${productId}`);
                 setProduct(result);
             } catch (error) {
                 console.log('Error fetching the product', error);

@@ -13,7 +13,7 @@ export default function ProductDetails() {
     if(product && product.imageUrl){
       setMainImage(product.imageUrl[0]);
     }
-  }, [productId]);
+  }, [product]);
 
   const handleClick = (img) => {
     setMainImage(img)
