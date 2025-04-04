@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {useProducts} from "../../api/shopServices";
+import {useProducts} from "../../hooks/shopServices";
 import Title from '../UI/Title';
 import ProductList from '../product/ProductList';
 

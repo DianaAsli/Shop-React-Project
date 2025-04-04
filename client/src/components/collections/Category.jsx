@@ -1,5 +1,5 @@
 import { useParams } from "react-router"
-import {useProducts} from "../../api/shopServices";
+import {useProducts} from "../../hooks/shopServices";
 import { useEffect, useState } from "react";
 import Title from "../UI/Title";
 import ProductList from "../product/ProductList";
@@ -39,7 +39,6 @@ export default function Category() {
         setSelectedFilters(filters);
     }
 
-    console.log(selectedFilters);
     
     return (
         <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">

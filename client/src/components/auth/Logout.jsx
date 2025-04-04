@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useLogout } from "../../api/authServices"
+import { useLogout } from "../../hooks/authServices"
 
 export default function Logout() {
    useLogout();

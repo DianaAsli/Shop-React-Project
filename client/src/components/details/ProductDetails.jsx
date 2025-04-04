@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router"
-import { useProduct } from "../../api/shopServices";
+import { useProduct } from "../../hooks/shopServices";
 import Rating from "../rating/Rating";
 import Comments from "../coments/Comments";
 

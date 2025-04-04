@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import Title from "../UI/Title";
-import { useRegister } from "../../api/authServices";
+import { useRegister } from "../../hooks/authServices";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 

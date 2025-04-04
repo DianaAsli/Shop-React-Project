@@ -9,9 +9,6 @@ import {
 import {
     UserContext
 } from "../context/UserContext";
-import {
-    useNavigate
-} from "react-router";
 
 const baseUrl = 'http://localhost:3030/users';
 
@@ -80,3 +77,5 @@ export const useLogout = () => {
     },[accessToken,logoutHandler])
 
 }
+
+//AFTER LOGOUT NAVIGATE TO LOGIN !!!
