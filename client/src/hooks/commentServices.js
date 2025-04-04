@@ -1,5 +1,7 @@
 import {
-    useContext
+    useContext,
+    useEffect,
+    useState
 } from "react";
 import {
     UserContext
@@ -30,4 +32,22 @@ export const useCreateComment = () => {
     return {
         createComment
     }
+}
+
+export const useComments = (productId) => {
+    const {
+        accessToken
+    } = useContext(UserContext);
+    const [filtered, setFiltered] = useState([]);
+
+    useEffect(() => {
+        const getAll = async () => {
+            const comments = await requester('GET', baseUrl, null, accessToken);
+            const filteredComments = comments.filter(comment => comment.productId === productId);
+            setFiltered(filteredComments);
+        }
+        getAll();
+    }, [productId, accessToken]);
+
+    return filtered;
 }
