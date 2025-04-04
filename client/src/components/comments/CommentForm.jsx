@@ -1,12 +1,14 @@
+import { useState } from "react";
 import Rating from "../rating/Rating";
 
-export default function CommentForm({setShowForm}) {
+export default function CommentForm({ setShowForm }) {
+    const [rating, setRating] = useState(0);
     return (
         <div className="m-auto w-3/4 mt-5 p-5 border border-gray-300 rounded-lg shadow-lg">
             <p className="text-xl font-semibold mb-4">Rate the product</p>
 
             <div className="mb-4">
-                <Rating />
+                <Rating rating={rating} setRating={setRating} isEditable={true}/>
             </div>
 
             <textarea
