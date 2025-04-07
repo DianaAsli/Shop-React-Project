@@ -3,27 +3,27 @@ import { UserContext } from '../../context/UserContext'
 import CommentForm from './CommentForm';
 import CommentsList from './CommentsList';
 import AverageRating from '../rating/AverageRating';
-import CommentCard from './CommentCard';
 
-export default function Comments() {
+export default function Comments({reload,setReload}) {
   const { accessToken } = useContext(UserContext);
-  const [showForm, setShowForm] = useState(false)
+  const [showForm, setShowForm] = useState(false);
+  // const [reload, setReload] = useState(false);
 
   return (
     <div className='mt-16 border-t pt-10'>
       <div className='w-full m-auto'>
         <h2 className='font-medium text-3xl mt-2'>Comments</h2>
-        <AverageRating/>
-        <hr className='w-full mt-10'/>
+        <AverageRating reload={reload} setReload={setReload}/>
+        <hr className='w-full mt-10' />
 
         {accessToken && !showForm && (
           <button onClick={() => setShowForm(!showForm)} className="mt-5 px-6 py-2 bg-black text-white text-sm sm:text-base rounded-full hover:bg-gray-800 transition cursor-pointer">Add a comment</button>
         )}
 
-        {showForm && <CommentForm setShowForm={setShowForm} />}
+        {showForm && <CommentForm setShowForm={setShowForm} setReload={setReload} />}
 
         <div className='mt-10'>
-          <CommentsList />
+          <CommentsList reload={reload} setReload={setReload} />
         </div>
 
       </div>

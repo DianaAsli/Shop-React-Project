@@ -8,6 +8,7 @@ export default function ProductDetails() {
   const { productId } = useParams();
   const product = useProduct(productId);
   const [mainImage, setMainImage] = useState(null);
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     if(product && product.imageUrl){
@@ -43,7 +44,7 @@ export default function ProductDetails() {
 
         <div className="flex-1">
           <h1 className="font-medium text-3xl mt-2">{product.productName}</h1>
-          <AverageRating />
+          <AverageRating reload={reload} setReload={setReload}/>
           <p className="mt-5 text-xl font-medium">BGN {product.price}</p>
           <p className="mt-5 text-gray-600">{product.description}</p>
           <div className="mt-10">
@@ -52,7 +53,7 @@ export default function ProductDetails() {
         </div>
       </div>
 
-      <Comments/>
+      <Comments reload={reload} setReload={setReload} />
 
     </div>
   )

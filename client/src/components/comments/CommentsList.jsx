@@ -1,12 +1,19 @@
 import { useParams } from "react-router";
 import { useComments } from "../../hooks/commentServices"
 import CommentCard from "./CommentCard";
+import { useEffect } from "react";
 
-export default function CommentsList() {
+export default function CommentsList({reload, setReload}) {
     const { productId } = useParams();
-    const  comments  = useComments(productId);
-    console.log('comments', comments);
-    
+    const { filtered: comments, getAll } = useComments(productId);
+
+    useEffect(()=>{
+        if(reload){
+            getAll();
+            setReload(false);
+        }
+    },[reload, setReload, getAll]);
+
     return (
         <div>
             {comments.length === 0 ?

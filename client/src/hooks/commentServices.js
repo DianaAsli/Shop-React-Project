@@ -39,15 +39,30 @@ export const useComments = (productId) => {
         accessToken
     } = useContext(UserContext);
     const [filtered, setFiltered] = useState([]);
+    const [averageRating, setAverageRating] = useState(0);
+    const [commentsCount, setCommentsCount] = useState(0);
+
+    const getAll = async () => {
+        const comments = await requester('GET', baseUrl, null, accessToken);
+        const filteredComments = comments.filter(comment => comment.productId === productId);
+        setFiltered(filteredComments);
+        setCommentsCount(filteredComments.length);
+
+        if (filteredComments.length > 0) {
+            const total = filteredComments.reduce((sum, com) => sum + com.rating, 0);
+            const average = Math.round(total / (filteredComments.length));
+            setAverageRating(average);
+        }
+    }
 
     useEffect(() => {
-        const getAll = async () => {
-            const comments = await requester('GET', baseUrl, null, accessToken);
-            const filteredComments = comments.filter(comment => comment.productId === productId);
-            setFiltered(filteredComments);
-        }
         getAll();
     }, [productId]);
 
-    return filtered;
+    return {
+        filtered,
+        averageRating,
+        commentsCount,
+        getAll
+    };
 }

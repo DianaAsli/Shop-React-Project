@@ -3,18 +3,19 @@ import Rating from "../rating/Rating";
 import { useParams } from "react-router";
 import { useCreateComment } from "../../hooks/commentServices";
 
-export default function CommentForm({ setShowForm }) {
+export default function CommentForm({ setShowForm, setReload }) {
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
     const { productId } = useParams();
     const { createComment } = useCreateComment();
 
-    const handleCommentSubmit = () => {
+    const handleCommentSubmit = async () => {
         if (comment.trim() === '') {
             console.log('Empty comment');
             return;
         }
-        createComment(rating, comment, productId);
+        await createComment(rating, comment, productId);
+        setReload(true);
 
         setRating(0);
         setComment('');
