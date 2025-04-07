@@ -26,6 +26,8 @@ export default function CommentForm({ onEdit, setOnEdit, setShowForm, setReload 
         if (onEdit) {
             const edited = await edit(rating, comment, productId, onEdit._id);
             setOnEdit(null);
+            console.log('edited comm', edited);
+            
 
         } else {
             await createComment(rating, comment, productId);
