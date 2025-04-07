@@ -12,28 +12,6 @@ import {
 
 const baseUrl = `http://localhost:3030/data/comments`;
 
-export const useCreateComment = () => {
-    const {
-        accessToken,
-        username
-    } = useContext(UserContext);
-
-    const createComment = async (rating, comment, productId) => {
-        const data = {
-            username,
-            productId,
-            rating,
-            comment,
-        }
-        const result = await requester('POST', `${baseUrl}`, data, accessToken);
-        return result;
-    }
-
-    return {
-        createComment
-    }
-}
-
 export const useComments = (productId) => {
     const {
         accessToken
@@ -65,4 +43,65 @@ export const useComments = (productId) => {
         commentsCount,
         getAll
     };
+}
+
+export const useCreateComment = () => {
+    const {
+        accessToken,
+        username
+    } = useContext(UserContext);
+
+    const createComment = async (rating, comment, productId) => {
+        const data = {
+            username,
+            productId,
+            rating,
+            comment,
+        }
+        const result = await requester('POST', `${baseUrl}`, data, accessToken);
+        return result;
+    }
+
+    return {
+        createComment
+    }
+}
+
+export const useComment = (commentId) => {
+    const [comment, setComment] = useState(null);
+
+    const getOne = async () => {
+        const result = await requester('GET', `${baseUrl}/${commentId}`)
+        setComment(result)
+    }
+
+    useEffect(() => {
+        getOne();
+    }, [commentId]);
+
+    return {
+        comment
+    }
+}
+
+export const useEdit = (commentId) => {
+    const {
+        accessToken,
+        username
+    } = useContext(UserContext);
+
+    const edit = async (rating, comment, productId) => {
+        const data = {
+            username,
+            productId,
+            rating,
+            comment
+        }
+        const result = await requester('PUT', `${baseUrl}/${commentId}`, data, accessToken);
+        return result;
+    }
+
+    return {
+        edit
+    }
 }

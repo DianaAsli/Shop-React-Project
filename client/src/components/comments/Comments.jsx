@@ -22,7 +22,7 @@ export default function Comments({reload,setReload}) {
         {showForm && <CommentForm setShowForm={setShowForm} setReload={setReload} />}
 
         <div className='mt-10'>
-          <CommentsList reload={reload} setReload={setReload} />
+          <CommentsList setShowForm={setShowForm} reload={reload} setReload={setReload} />
         </div>
 
       </div>

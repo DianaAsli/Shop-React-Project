@@ -1,17 +1,18 @@
 import React, { useContext, useState } from 'react'
 import Rating from '../rating/Rating'
 import { formatDate } from '../../utils/formatDate'
-import { useComments } from '../../hooks/commentServices'
 import { UserContext } from '../../context/UserContext'
+import { useEdit } from '../../hooks/commentServices';
 
-export default function CommentCard({ comment }) {
+export default function CommentCard({ comment , setShowForm}) {
     const { _id } = useContext(UserContext);
-
     const isOwner = (_id === comment._ownerId);
 
+    const {edit} = useEdit(comment._id);
+    
     const handleEdit = () => {
-        console.log('edit');
-
+        console.log('edit comment',comment);
+        setShowForm(true);
     }
 
     const handleDelete = () => {
@@ -58,40 +59,4 @@ export default function CommentCard({ comment }) {
         </div>
     );
     
-    
-    // return (
-    //     <div className='flex flex-row'>
-    //         <div className="flex flex-col space-y-4 border-b border-gray-300 pb-4">
-    //             <div className="flex items-center gap-4">
-    //                 <span className="font-semibold text-lg">{comment.username}</span>
-    //                 <span className="text-sm text-gray-500">Posted on: {formatDate(comment._createdOn)}</span>
-    //             </div>
-
-    //             <Rating rating={comment.rating} isEditable={false} />
-
-    //             <p className="text-gray-700">
-    //                 {comment.comment}
-    //             </p>
-
-    //         </div>
-
-    //         {isOwner && (<div className="flex gap-2">
-    //             <button
-    //                 onClick={() => handleEdit(comment._id)}
-    //                 className="px-3 py-1 bg-yellow-400 text-white text-sm rounded hover:bg-yellow-500"
-    //             >
-    //                 Edit
-    //             </button>
-    //             <button
-    //                 onClick={() => handleDelete(comment._id)}
-    //                 className="px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600"
-    //             >
-    //                 Delete
-    //             </button>
-    //         </div>)}
-    //     </div>
-
-
-
-    // )
 }
