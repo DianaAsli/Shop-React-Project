@@ -17,11 +17,11 @@ export const useLogin = () => {
         const result = await requester('POST', `${baseUrl}/login`, {
             email,
             password
-        }) 
+        })
 
-        if (result?.accessToken) {
-            // localStorage.setItem('accessToken', result.accessToken)
-        }
+        // if (result ? .accessToken) {
+        //     // localStorage.setItem('accessToken', result.accessToken)
+        // }
 
         return result;
     }
@@ -52,6 +52,7 @@ export const useLogout = () => {
         accessToken,
         logoutHandler
     } = useContext(UserContext);
+    const [loggedOut, setLoggedOut] = useState(false);
 
     useEffect(() => {
         if (!accessToken) {
@@ -59,7 +60,7 @@ export const useLogout = () => {
         }
 
         const logout = async () => {
-            console.log('Executing logout');
+            // console.log('Executing logout');
 
             try {
                 const response = await requester('GET', `${baseUrl}/logout`, null, accessToken);
@@ -67,16 +68,20 @@ export const useLogout = () => {
                 if (response.status === 204) {
                     logoutHandler();
                     // localStorage.removeItem('accessToken');
+                    setLoggedOut(true);
                 }
 
             } catch (error) {
                 console.log('Logout error', error);
-
+                setLoggedOut(false);
             }
         }
         logout();
     }, [accessToken, logoutHandler])
 
+    return {
+        loggedOut
+    }
 }
 
 //AFTER LOGOUT NAVIGATE TO LOGIN !!!
