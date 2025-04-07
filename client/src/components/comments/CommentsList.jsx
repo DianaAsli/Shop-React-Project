@@ -19,7 +19,7 @@ export default function CommentsList({setOnEdit, setShowForm, reload, setReload}
             {comments.length === 0 ?
                 (<p className="text-center text-gray-600 text-lg mt-6">No comments yet.</p>)
                 : (comments.map(comment => {
-                    return <CommentCard setOnEdit={setOnEdit} setShowForm={setShowForm} key={comment._id} comment={comment} />
+                    return <CommentCard setReload={setReload} setOnEdit={setOnEdit} setShowForm={setShowForm} key={comment._id} comment={comment} />
                 })
                 )}
         </div>

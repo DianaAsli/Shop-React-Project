@@ -2,21 +2,23 @@ import React, { useContext, useState } from 'react'
 import Rating from '../rating/Rating'
 import { formatDate } from '../../utils/formatDate'
 import { UserContext } from '../../context/UserContext'
+import { useDelete } from '../../hooks/commentServices'
 
-export default function CommentCard({ setOnEdit, comment, setShowForm }) {
+export default function CommentCard({ setReload, setOnEdit, comment, setShowForm }) {
+    const { deleteComment } = useDelete();
     const { _id } = useContext(UserContext);
     const isOwner = (_id === comment._ownerId);
 
-
     const handleEdit = () => {
-        console.log('edit comment', comment);
         setOnEdit(comment);
         setShowForm(true);
     }
 
-    const handleDelete = () => {
-        console.log('delete');
-
+    const handleDelete = async () => {
+        await deleteComment(comment._id);
+        setShowForm(false);
+        setOnEdit(null);
+        setReload(true);
     }
 
     return (

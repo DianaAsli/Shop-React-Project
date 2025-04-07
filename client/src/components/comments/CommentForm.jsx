@@ -6,7 +6,9 @@ import { useCreateComment, useEdit } from "../../hooks/commentServices";
 export default function CommentForm({ onEdit, setOnEdit, setShowForm, setReload }) {
     const [rating, setRating] = useState(onEdit?.rating || 0);
     const [comment, setComment] = useState(onEdit?.comment || '');
+
     const { productId } = useParams();
+
     const { createComment } = useCreateComment();
     const { edit } = useEdit(onEdit?._id);
 
@@ -24,11 +26,8 @@ export default function CommentForm({ onEdit, setOnEdit, setShowForm, setReload 
         }
 
         if (onEdit) {
-            const edited = await edit(rating, comment, productId, onEdit._id);
+            await edit(rating, comment, productId, onEdit._id);
             setOnEdit(null);
-            console.log('edited comm', edited);
-            
-
         } else {
             await createComment(rating, comment, productId);
         }

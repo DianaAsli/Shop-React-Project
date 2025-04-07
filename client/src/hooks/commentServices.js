@@ -67,23 +67,6 @@ export const useCreateComment = () => {
     }
 }
 
-export const useComment = (commentId) => {
-    const [comment, setComment] = useState(null);
-
-    const getOne = async () => {
-        const result = await requester('GET', `${baseUrl}/${commentId}`)
-        setComment(result)
-    }
-
-    useEffect(() => {
-        getOne();
-    }, [commentId]);
-
-    return {
-        comment
-    }
-}
-
 export const useEdit = (commentId) => {
     const {
         accessToken,
@@ -103,5 +86,20 @@ export const useEdit = (commentId) => {
 
     return {
         edit
+    }
+}
+
+export const useDelete = () => {
+    const {
+        accessToken
+    } = useContext(UserContext);
+
+    const deleteComment = async (commentId) => {
+        const result = await requester('DELETE', `${baseUrl}/${commentId}`, null, accessToken);
+        return result;
+    }
+
+    return {
+        deleteComment
     }
 }
