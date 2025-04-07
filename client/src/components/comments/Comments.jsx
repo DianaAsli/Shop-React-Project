@@ -7,7 +7,6 @@ import AverageRating from '../rating/AverageRating';
 export default function Comments({reload,setReload}) {
   const { accessToken } = useContext(UserContext);
   const [showForm, setShowForm] = useState(false);
-  // const [reload, setReload] = useState(false);
 
   return (
     <div className='mt-16 border-t pt-10'>

@@ -17,7 +17,12 @@ export const useLogin = () => {
         const result = await requester('POST', `${baseUrl}/login`, {
             email,
             password
-        })
+        }) 
+
+        if (result?.accessToken) {
+            // localStorage.setItem('accessToken', result.accessToken)
+        }
+
         return result;
     }
 
@@ -61,6 +66,7 @@ export const useLogout = () => {
 
                 if (response.status === 204) {
                     logoutHandler();
+                    // localStorage.removeItem('accessToken');
                 }
 
             } catch (error) {
