@@ -1,20 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Rating from "../rating/Rating";
 import { useParams } from "react-router";
-import { useCreateComment } from "../../hooks/commentServices";
+import { useCreateComment, useEdit } from "../../hooks/commentServices";
 
-export default function CommentForm({ setShowForm, setReload }) {
-    const [rating, setRating] = useState(0);
-    const [comment, setComment] = useState('');
+export default function CommentForm({ onEdit, setOnEdit, setShowForm, setReload }) {
+    const [rating, setRating] = useState(onEdit?.rating || 0);
+    const [comment, setComment] = useState(onEdit?.comment || '');
     const { productId } = useParams();
     const { createComment } = useCreateComment();
+    const { edit } = useEdit(onEdit?._id);
+
+    useEffect(() => {
+        if (onEdit) {
+            setRating(onEdit.rating);
+            setComment(onEdit.comment);
+        }
+    }, [onEdit])
 
     const handleCommentSubmit = async () => {
-        if (comment.trim() === '') {
-            console.log('Empty comment');
+        if (comment.trim() === '' || rating === 0) {
+            console.log('Empty inputs');
             return;
         }
-        await createComment(rating, comment, productId);
+
+        if (onEdit) {
+            const edited = await edit(rating, comment, productId, onEdit._id);
+            setOnEdit(null);
+
+        } else {
+            await createComment(rating, comment, productId);
+        }
         setReload(true);
 
         setRating(0);
@@ -39,7 +54,11 @@ export default function CommentForm({ setShowForm, setReload }) {
 
             <div className="flex justify-between items-center">
                 <button
-                    onClick={() => setShowForm(false)}
+                    onClick={() => {
+                        setShowForm(false);
+                        setOnEdit(null);
+                    }
+                    }
                     className="px-6 py-2 bg-gray-400 text-white text-sm sm:text-base rounded-full hover:bg-gray-500 transition cursor-pointer">
                     Cancel
                 </button>
@@ -47,7 +66,7 @@ export default function CommentForm({ setShowForm, setReload }) {
                 <button
                     onClick={handleCommentSubmit}
                     className="px-6 py-2 bg-black text-white text-sm sm:text-base rounded-full hover:bg-gray-800 transition cursor-pointer">
-                    Leave a comment
+                    {onEdit ? 'Edit comment' : 'Leave a comment'}
                 </button>
             </div>
         </div>

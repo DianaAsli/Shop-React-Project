@@ -3,7 +3,7 @@ import { useComments } from "../../hooks/commentServices"
 import CommentCard from "./CommentCard";
 import { useEffect } from "react";
 
-export default function CommentsList({setShowForm, reload, setReload}) {
+export default function CommentsList({setOnEdit, setShowForm, reload, setReload}) {
     const { productId } = useParams();
     const { filtered: comments, getAll } = useComments(productId);
 
@@ -19,7 +19,7 @@ export default function CommentsList({setShowForm, reload, setReload}) {
             {comments.length === 0 ?
                 (<p className="text-center text-gray-600 text-lg mt-6">No comments yet.</p>)
                 : (comments.map(comment => {
-                    return <CommentCard setShowForm={setShowForm} key={comment._id} comment={comment} />
+                    return <CommentCard setOnEdit={setOnEdit} setShowForm={setShowForm} key={comment._id} comment={comment} />
                 })
                 )}
         </div>
