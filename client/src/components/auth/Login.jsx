@@ -10,20 +10,27 @@ export default function Login() {
     const navigate = useNavigate();
     const { loginHandler } = useContext(UserContext)
 
-    const handleLogin = async (previousState, formData) => {
-        const values = Object.fromEntries(formData);
-        const data = await login(values.email, values.password);
-        loginHandler(data);
-        navigate('/');
-        //console.log('Login result', result);
-    }
+    const handleLogin = async (formData) => {
+        const {email, password} = Object.fromEntries(formData);
 
-    const [state, formAction] = useActionState(handleLogin, { email: '', password: '' })
+        try {
+            const data = await login(email, password);
+
+            if (!data.accessToken) {
+                return { error: 'Invalid email or password' }
+            }
+            loginHandler(data);
+            navigate('/');
+        } catch (error){
+            console.log('Error');
+            
+        }
+    }
 
     return (
         <div className='auth-container'>
             <Title className='auth-title' text2={'LOGIN'}></Title>
-            <form action={formAction} className='auth-form'>
+            <form action={handleLogin} className='auth-form'>
                 <input type="email" placeholder='Your email' name='email' required className='auth-input' />
                 <input type="password" placeholder='Your password' name='password' required className='auth-input' />
                 <button type='submit' className='auth-button'>Login</button>
