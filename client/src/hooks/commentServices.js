@@ -30,7 +30,10 @@ export const useComments = (productId) => {
             const total = filteredComments.reduce((sum, com) => sum + com.rating, 0);
             const average = Math.round(total / (filteredComments.length));
             setAverageRating(average);
+        } else{
+            setAverageRating(0);
         }
+
     }
 
     useEffect(() => {
