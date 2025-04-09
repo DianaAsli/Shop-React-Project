@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { UserContext } from './context/UserContext';
 import Logout from './components/auth/Logout';
 import ProductDetails from './components/details/ProductDetails';
+import About from './components/about/about';
 
 function App() {
   const [authData, setAuthData] = useState({});
@@ -34,6 +35,7 @@ function App() {
           <Route path='/users/register' element={<Register />} />
           <Route path='/users/logout' element={<Logout />} />
           <Route path='/product/:productId' element={<ProductDetails />} />
+          <Route path='/about' element={<About />} />
         </Routes>
         <Footer />
       </div>

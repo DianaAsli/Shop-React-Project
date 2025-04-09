@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function AverageRating({ reload, setReload }) {
     const { productId } = useParams();
-    const { comments, averageRating, commentsCount, getAll } = useComments(productId);
+    const { averageRating, commentsCount, getAll } = useComments(productId);
 
     useEffect(() => {
         if (reload) {
