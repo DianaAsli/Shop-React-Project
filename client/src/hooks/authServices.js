@@ -18,11 +18,6 @@ export const useLogin = () => {
             email,
             password
         })
-
-        // if (result ? .accessToken) {
-        //     // localStorage.setItem('accessToken', result.accessToken)
-        // }
-
         return result;
     }
 
@@ -84,4 +79,8 @@ export const useLogout = () => {
     }
 }
 
-//AFTER LOGOUT NAVIGATE TO LOGIN !!!
+export const useEditUser = () =>{
+    const edit = async(username, password) =>{
+        const result = await requester('PUT',)
+    }
+}

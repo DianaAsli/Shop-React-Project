@@ -13,6 +13,7 @@ import ProductDetails from './components/details/ProductDetails';
 import About from './components/about/about';
 import Contact from './components/contact/Contact';
 import ErrorPage from './components/error/Error';
+import Profile from './profile/Profile';
 
 function App() {
   const [authData, setAuthData] = useState({});
@@ -39,6 +40,7 @@ function App() {
           <Route path='/product/:productId' element={<ProductDetails />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact/>}/>
+          <Route path='/users/profile' element={<Profile/>}/>
           <Route path='/404' element={<ErrorPage/>}/>
           <Route path='*' element={<Navigate to='/404'/>}/>
         </Routes>
