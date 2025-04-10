@@ -9,8 +9,8 @@ export default function Register() {
     const { register } = useRegister();
     const { loginHandler } = useContext(UserContext);
 
-    const [email, setEmail] = useState(null);
-    const [username, setUsername] = useState(null);
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
 
     const [error, setError] = useState(null);
 

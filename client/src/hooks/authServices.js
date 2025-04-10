@@ -18,6 +18,7 @@ export const useLogin = () => {
             email,
             password
         })
+
         return result;
     }
 
@@ -55,8 +56,6 @@ export const useLogout = () => {
         }
 
         const logout = async () => {
-            // console.log('Executing logout');
-
             try {
                 const response = await requester('GET', `${baseUrl}/logout`, null, accessToken);
 
@@ -79,8 +78,15 @@ export const useLogout = () => {
     }
 }
 
-export const useEditUser = () =>{
-    const edit = async(username, password) =>{
-        const result = await requester('PUT',)
-    }
-}
+// export const useEditUser = () =>{
+//     const edit = async(email,username, password) =>{
+//         const data = {
+//             email,
+//             username, 
+//             password,
+
+//         }
+//         const result = await requester('PUT', `${baseUrl}/me`, data, accessToken);
+//     }
+//     return {edit}
+// }

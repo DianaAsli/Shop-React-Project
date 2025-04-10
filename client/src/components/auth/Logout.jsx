@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function Logout() {
     const { loggedOut } = useLogout();
     const navigate = useNavigate();
-    useLogout();
+    // useLogout();
     useEffect(() => {
         if (loggedOut) {
             navigate('/users/login');

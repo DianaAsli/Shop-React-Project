@@ -7,8 +7,8 @@ export default function Profile() {
 
     const [emailForm, setEmail] = useState(email);
     const [usernameForm, setUsername] = useState(username);
-    const [password, setPassword] = useState(null);
-    const [rePassword, setRePassword] = useState(null);
+    const [password, setPassword] = useState('');
+    const [rePassword, setRePassword] = useState('');
 
     const [error, setError] = useState(null);
 

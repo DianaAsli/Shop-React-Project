@@ -9,14 +9,12 @@ export default function ProductDetails() {
   const product = useProduct(productId);
   const [mainImage, setMainImage] = useState(null);
   const [reload, setReload] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     if (product && product.imageUrl) {
       setMainImage(product.imageUrl[0]);
-    } else {
-      navigate('404')
-    }
+    } 
   }, [product]);
 
   const handleClick = (img) => {
