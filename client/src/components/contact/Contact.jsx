@@ -8,8 +8,9 @@ export default function Contact() {
         <div className="bg-gray-100 pt-5 p-15 max-w-3xl mx-auto mt-5 shadow-md rounded-md text-center">
            
             <Title text1={'Contact'} text2={'Us'} />
-           <p className="text-gray-600 mb-6">Find us here:</p>
-            <div className='mt-8'>
+           <p className="text-gray-700 mb-6">Our Location</p>
+           
+            <div className='mt-5'>
                 <Map />
             </div>
             <p className="text-gray-600 mt-3 mb-6">We'd love to hear from you!</p>
