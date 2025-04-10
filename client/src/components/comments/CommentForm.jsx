@@ -6,6 +6,7 @@ import { useCreateComment, useEdit } from "../../hooks/commentServices";
 export default function CommentForm({ onEdit, setOnEdit, setShowForm, setReload }) {
     const [rating, setRating] = useState(onEdit?.rating || 0);
     const [comment, setComment] = useState(onEdit?.comment || '');
+    const [error, setError] = useState(null);
 
     const { productId } = useParams();
 
@@ -21,7 +22,7 @@ export default function CommentForm({ onEdit, setOnEdit, setShowForm, setReload 
 
     const handleCommentSubmit = async () => {
         if (comment.trim() === '' || rating === 0) {
-            console.log('Empty inputs');
+            setError('All inputs are required')
             return;
         }
 
@@ -31,6 +32,7 @@ export default function CommentForm({ onEdit, setOnEdit, setShowForm, setReload 
         } else {
             await createComment(rating, comment, productId);
         }
+
         setReload(true);
 
         setRating(0);
@@ -40,6 +42,13 @@ export default function CommentForm({ onEdit, setOnEdit, setShowForm, setReload 
 
     return (
         <div className="m-auto w-3/4 mt-5 p-5 border border-gray-300 rounded-lg shadow-lg">
+            
+            {error && (
+                <p className="text-red-700 bg-red-100 border border-red-300 rounded p-2 mb-4 text-center">
+                    {error}
+                </p>
+            )}
+            
             <p className="text-xl font-semibold mb-4">Rate the product</p>
 
             <div className="mb-4">
