@@ -26,6 +26,16 @@ const collections = [
 ]
 
 export default function Collection() {
+
+    // const validCollections = ['earings', 'necklaces', 'bracelets', 'rings', 'accessories'];
+
+    // useEffect(() => {
+    //     if (!validCollections.includes(collectionId.toLowerCase())) {
+    //         navigate('/404', { replace: true });
+    //     }
+    // }, [collectionId, navigate]);
+
+
     return (
         <div className="my-10">
             <div className="text-center mb-20 text-3xl">

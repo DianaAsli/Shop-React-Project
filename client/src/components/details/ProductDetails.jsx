@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router"
+import { Link, useNavigate, useParams } from "react-router"
 import { useProduct } from "../../hooks/shopServices";
 import Comments from "../comments/Comments";
 import AverageRating from "../rating/AverageRating";
@@ -9,10 +9,13 @@ export default function ProductDetails() {
   const product = useProduct(productId);
   const [mainImage, setMainImage] = useState(null);
   const [reload, setReload] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if(product && product.imageUrl){
+    if (product && product.imageUrl) {
       setMainImage(product.imageUrl[0]);
+    } else {
+      navigate('404')
     }
   }, [product]);
 
@@ -30,10 +33,10 @@ export default function ProductDetails() {
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto justify-between sm:justify-normal sm:w-[24%] w-full">
-            {
-              product.imageUrl.map((img, index) => (
-                <img onClick={() => handleClick(img)} src={img} key={index} className="w-1/4 sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" />
-              ))
+            {product.imageUrl && Array.isArray(product.imageUrl) && product.imageUrl.length > 0 ?
+              (product.imageUrl.map((img, index) => (
+            <img onClick={() => handleClick(img)} src={img} key={index} className="w-1/4 sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" />
+            ))) : null
             }
           </div>
 
@@ -44,11 +47,11 @@ export default function ProductDetails() {
 
         <div className="flex-1">
           <h1 className="font-medium text-3xl mt-2">{product.productName}</h1>
-          <AverageRating reload={reload} setReload={setReload}/>
+          <AverageRating reload={reload} setReload={setReload} />
           <p className="mt-5 text-xl font-medium">BGN {product.price}</p>
           <p className="mt-5 text-gray-600">{product.description}</p>
           <div className="mt-10">
-          <Link to='/cart' className="mt-10 px-6 py-2 bg-black text-white text-sm sm:text-base rounded-full hover:bg-gray-800 transition cursor-pointer">Add to cart</Link>
+            <Link to='/cart' className="mt-10 px-6 py-2 bg-black text-white text-sm sm:text-base rounded-full hover:bg-gray-800 transition cursor-pointer">Add to cart</Link>
           </div>
         </div>
       </div>

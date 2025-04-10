@@ -46,8 +46,7 @@ export default function Navbar() {
                     <img src={user} alt="" className="w-8 cursor-pointer icon-thin" />
                     <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
                         <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded'>
-                            <p className='cursor-pointer hover:text-black'>My Profile</p>
-                            <p className='cursor-pointer hover:text-black'>Orders</p>
+                            <Link to='/users/profile'><p className='cursor-pointer hover:text-black'>My Profile</p></Link> 
                             <Link to='/users/logout' className='cursor-pointer hover:text-black'>Logout</Link>
                         </div>
                     </div>
@@ -57,8 +56,6 @@ export default function Navbar() {
                         <p className='absolute right-[-5px] bottom-[-5px] w-3 text-center leading-3 bg-white text-black border aspect-square rounded-full text-[8px]'>
                             10
                         </p>
-
-                        {/* <p className='absolute right-[-5px] bottom-[-5px] w-3 text-center leading-3 bg-white text-black border aspect-square rounded-full text-[8px]'>10</p> */}
                     </Link> </>)
                 }
 

@@ -1,5 +1,5 @@
-import { useParams } from "react-router"
-import {useProducts} from "../../hooks/shopServices";
+import { useNavigate, useParams } from "react-router"
+import { useProducts } from "../../hooks/shopServices";
 import { useEffect, useState } from "react";
 import Title from "../UI/Title";
 import ProductList from "../product/ProductList";
@@ -14,6 +14,16 @@ const categoryFilter = {
 export default function Category() {
     const { category } = useParams();
     const products = useProducts();
+    const navigate = useNavigate();
+
+    const validCollections = ['earings', 'necklaces', 'bracelets', 'rings', 'accessories'];
+
+    useEffect(() => {
+        if (!validCollections.includes(category.toLowerCase())) {
+            navigate('/404', { replace: true });
+        }
+    }, [category, navigate]);
+
 
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [selectedFilters, setSelectedFilters] = useState([]);
@@ -39,10 +49,10 @@ export default function Category() {
         setSelectedFilters(filters);
     }
 
-    
+
     return (
         <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
-            {(filteredProducts.length > 0 || selectedFilters.length>0) ? <SubcategoryFilter onFilterChange={handleFilterChange} filters={filter} /> : null}
+            {(filteredProducts.length > 0 || selectedFilters.length > 0) ? <SubcategoryFilter onFilterChange={handleFilterChange} filters={filter} /> : null}
             <div className="flex-1">
                 <div className=" flex justify-center text-base sm:text-2xl mb-4">
                     <Title text1={'All'} text2={`${category.toUpperCase()}`} />

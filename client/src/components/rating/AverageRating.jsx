@@ -7,9 +7,6 @@ export default function AverageRating({ reload, setReload }) {
     const { productId } = useParams();
     const { averageRating, commentsCount, getAll } = useComments(productId);
 
-    console.log('check', averageRating);
-    
-
     useEffect(() => {
         if (reload) {
             getAll();

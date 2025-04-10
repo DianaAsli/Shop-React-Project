@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 import Home from './components/home/Home';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
@@ -39,7 +39,8 @@ function App() {
           <Route path='/product/:productId' element={<ProductDetails />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact/>}/>
-          <Route path='*' element={<ErrorPage/>}/>
+          <Route path='/404' element={<ErrorPage/>}/>
+          <Route path='*' element={<Navigate to='/404'/>}/>
         </Routes>
         <Footer />
       </div>

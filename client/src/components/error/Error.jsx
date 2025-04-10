@@ -8,7 +8,7 @@ export default function ErrorPage() {
             <p className="text-lg mt-5 text-gray-600 ">
                 It seems that you've encountered a broken link or a page that no longer exists.
             </p>
-            <Link to='/collection'>
+            <Link to='/'>
           <button className="cursor-pointer mt-5 px-6 py-2 bg-black text-white text-sm sm:text-base rounded-full hover:bg-gray-800 transition">
             Go back to Home
           </button>
